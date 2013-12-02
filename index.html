@@ -1,0 +1,30 @@
+<HTML>
+	<HEAD>
+		  <link href="video-js.css" rel="stylesheet" type="text/css">
+		<SCRIPT TYPE="text/javascript" SRC="video.js"></SCRIPT>
+		<SCRIPT>videojs.options.flash.swf="video-js.swf"</SCRIPT>
+	</HEAD>
+	<BODY onLoad="getCurrentTime()">
+		<video id="highway_to_hell" class="video-js vjs-default-skin vjs-big-play-centered"  data-setup='{"controls":true, "autoplay":false, "preload":"auto", "width":640,"height":480}' >
+		<source src="Highway-to-Hell.mp4" type="video/mp4" />
+		</video>
+		<script>
+		function getCurrentTime()
+		{
+			_V_("highway_to_hell").ready(function()
+			{
+				var vidPlayer = this;
+				var playLength = vidPlayer.duration();
+  				var position = vidPlayer.currentTime();
+  				var sendingEmail = document.getElementById('sendingEmail');
+  				if(position > 10 && position < 20 )
+  				{
+              sendingEmail.innerHTML="Sending sms";
+  				}
+  				t=setTimeout(function() {getCurrentTime()},7000);
+			});
+		}
+		</script>
+		<div id="sendingEmail" style="width: 640px; height: 100px; background: #CCC; color: #111; font-size: 20px; font-family: Lato regular; text-align: center;"></div>
+	</BODY>
+</HTML>
